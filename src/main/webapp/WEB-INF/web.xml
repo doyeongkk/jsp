@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>jsp</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>jsp</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
 
-<!-- servlet 등록, 해당 서블릿에서 처리를 할 url 등록 -->
- <servlet>
-    <servlet-name>basicServlet</servlet-name>
-    <servlet-class>kr.or.ddit.servlet.basic.BasicServlet</servlet-class>
- </servlet>
- 
- <!-- servlet에서 처리할 url 매핑 -->
- <servlet-mapping>
-    <servlet-name>basicServlet</servlet-name>
-    <url-pattern>/basicServlet</url-pattern>
- </servlet-mapping>
+	<!-- servlet 등록, 해당 서블릿에서 처리를 할 url 등록 -->
+	<servlet>
+		<servlet-name>basicServlet</servlet-name>
+		<servlet-class>kr.or.ddit.servlet.basic.BasicServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- servlet에서 처리할 url 매핑 -->
+	<servlet-mapping>
+		<servlet-name>basicServlet</servlet-name>
+		<url-pattern>/basicServlet</url-pattern>
+	</servlet-mapping>
 </web-app>
 

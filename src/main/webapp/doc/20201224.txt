@@ -1,24 +1,24 @@
 
-1. ¼­ºí¸´ »ı¼º°úÁ¤
-2. ¸ŞÀÌºìÀ» »ç¿ëÇØ¾ßÇÏ´Â ÀÌÀ¯
+1. ì„œë¸”ë¦¿ ìƒì„±ê³¼ì •
+2. ë©”ì´ë¸ì„ ì‚¬ìš©í•´ì•¼í•˜ëŠ” ì´ìœ 
 
-mvn ¸í·É¾î¸¦ ½ÇÇà ÇÒ¶§´Â pom.xmlÀÌ Á¸ÀçÇÏ´Â Æú´õ·Î ÀÌµ¿ÇØ¼­ ½ÇÇà			
-maven clean: ¸ŞÀÌºì ºôµå°úÁ¤¿¡¼­ »ı¼ºµÈ °á°ú¹°(target) »èÁ¦
-mvn package -> class ÄÄÆÄÀÏ, war ÆÄÀÏ·Î »ı¼º 
+mvn ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰ í• ë•ŒëŠ” pom.xmlì´ ì¡´ì¬í•˜ëŠ” í´ë”ë¡œ ì´ë™í•´ì„œ ì‹¤í–‰			
+maven clean: ë©”ì´ë¸ ë¹Œë“œê³¼ì •ì—ì„œ ìƒì„±ëœ ê²°ê³¼ë¬¼(target) ì‚­ì œ
+mvn package -> class ì»´íŒŒì¼, war íŒŒì¼ë¡œ ìƒì„± 
                           artifacted-version.war 			
 			
 
-maven lifecycle - °³³äÀû ÀÌÇØ -> ´Ü°è ¼ø¼­ Á¤ÇüÈ­ÇÔ 
-clean: ±âÁ¸ build ÀÛ¾÷ ³»¿ª »èÁ¦ , default lifecycle - ¿ì¸®´Â packageÇÔ, site lifecycle 
+maven lifecycle - ê°œë…ì  ì´í•´ -> ë‹¨ê³„ ìˆœì„œ ì •í˜•í™”í•¨ 
+clean: ê¸°ì¡´ build ì‘ì—… ë‚´ì—­ ì‚­ì œ , default lifecycle - ìš°ë¦¬ëŠ” packageí•¨, site lifecycle 
 
-¹èÆ÷
+ë°°í¬
 
-1. 6.jspSpring/deploy/jsp Æú´õ¿¡ github¿¡¼­ ¼Ò½ºÄÚµå¸¦ clone 
+1. 6.jspSpring/deploy/jsp í´ë”ì— githubì—ì„œ ì†ŒìŠ¤ì½”ë“œë¥¼ clone 
 
-1-2. ¼Ò½ºÄÚµå¸¦ ÃÖ½ÅÈ­ µÇµµ·Ï github¿¡¼­ pull
-2. mavenÀ» ÀÌ¿ëÇÏ¿© warÆÄÀÏ·Î »ı¼º 
-3. tomcatÀÌ ±âµ¿ÁßÀÌ¶ó°í °¡Á¤ÇÏ°í shutdown.shÀ» ½ÇÇà(¼­¹ö Á¾·á)
-4. 2¹ø °úÁ¤¿¡¼­ »ı¼ºµÈ ÆÄÀÏ(jsp-0.0.1-SNAPSHOT.war)ÀÇ ÀÌ¸§À» jsp.war·Î ¼öÁ¤ 
-5-0. webapps Æú´õ¿¡ Á¸ÀçÇÏ´Â jspÆú´õ¿Í jsp.warÆÄÀÏÀ» »èÁ¦
-5. 4¹ø °úÁ¤¿¡¼­ ¸¸µé¾îÁø jsp.war ÆÄÀÏÀ» tomcatÀÇ weapps Æú´õ¸¦ º¹»ç 
-6. tomcatÀ» ±âµ¿ -startup.sh(¼­¹ö ½ÃÀÛ) 
+1-2. ì†ŒìŠ¤ì½”ë“œë¥¼ ìµœì‹ í™” ë˜ë„ë¡ githubì—ì„œ pull
+2. mavenì„ ì´ìš©í•˜ì—¬ waríŒŒì¼ë¡œ ìƒì„± 
+3. tomcatì´ ê¸°ë™ì¤‘ì´ë¼ê³  ê°€ì •í•˜ê³  shutdown.shì„ ì‹¤í–‰(ì„œë²„ ì¢…ë£Œ)
+4. 2ë²ˆ ê³¼ì •ì—ì„œ ìƒì„±ëœ íŒŒì¼(jsp-0.0.1-SNAPSHOT.war)ì˜ ì´ë¦„ì„ jsp.warë¡œ ìˆ˜ì • 
+5-0. webapps í´ë”ì— ì¡´ì¬í•˜ëŠ” jspí´ë”ì™€ jsp.waríŒŒì¼ì„ ì‚­ì œ
+5. 4ë²ˆ ê³¼ì •ì—ì„œ ë§Œë“¤ì–´ì§„ jsp.war íŒŒì¼ì„ tomcatì˜ weapps í´ë”ë¥¼ ë³µì‚¬ 
+6. tomcatì„ ê¸°ë™ -startup.sh(ì„œë²„ ì‹œì‘) 
