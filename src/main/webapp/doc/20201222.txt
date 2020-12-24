@@ -180,10 +180,10 @@ pacage src검게 된거: 나중에 배포할때 제거됨
 
 
 pom: project object model: 프로젝트에 대한 설정 정보
-         해당 프로젝트를 만든 회사    
-  프로젝트 이름
-  프로젝트 버전
-  프로젝트에서 필요로 하는 의존성(dependency)- 라이브러리 (ojdbc6.jar)
+        해당 프로젝트를 만든 회사    
+		  프로젝트 이름
+		  프로젝트 버전
+		  프로젝트에서 필요로 하는 의존성(dependency)- 라이브러리 (ojdbc6.jar)
  pom.xml   
      
 
