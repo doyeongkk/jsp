@@ -31,11 +31,26 @@
     <groupId>javax.servlet</groupId>
     <artifactId>javax.servlet-api</artifactId>
     <version>3.0.1</version>
-    <scope>provided</scope>
+     <scope>provided</scope> 
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version> 
+</dependency>
+
+   <!-- scope
+      생략시(default) compile- 컴파일 과정부터 배포되는 과정까지 해당 라이브러리가 필요함을 의미
+      test: test과정 까지만 필요, 배포시 (packaging)시 제외 됨 
+      provided(제공이 되어짐): 운영 환경에서 해당 라이브러리가 제공이 됨(배포 할때 빠짐)
+      
+    -->
+
+
  
-</dependencies>
+   </dependencies>
 
 </project>
 

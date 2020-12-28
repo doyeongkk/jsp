@@ -20,5 +20,5 @@ clean: 기존 build 작업 내역 삭제 , default lifecycle - 우리는 package
 3. tomcat이 기동중이라고 가정하고 shutdown.sh을 실행(서버 종료)
 4. 2번 과정에서 생성된 파일(jsp-0.0.1-SNAPSHOT.war)의 이름을 jsp.war로 수정 
 5-0. webapps 폴더에 존재하는 jsp폴더와 jsp.war파일을 삭제
-5. 4번 과정에서 만들어진 jsp.war 파일을 tomcat의 weapps 폴더를 복사 
+5. 4번 과정에서 만들어진 jsp.war 파일을 tomcat의 webapps 폴더를 복사 
 6. tomcat을 기동 -startup.sh(서버 시작) 
