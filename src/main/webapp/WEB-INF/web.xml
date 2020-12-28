@@ -25,5 +25,18 @@
 		<servlet-name>basicServlet</servlet-name>
 		<url-pattern>/basicServlet</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TimeServlet</servlet-name>
+		<servlet-class>kr.or.ddit.servlet.basic.TimeServlet</servlet-class>
+		
+	</servlet>
+	
+	
+	<servlet-mapping>
+	     <servlet-name>TimeServlet</servlet-name>
+	     <url-pattern>/TimeServlet</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
 
