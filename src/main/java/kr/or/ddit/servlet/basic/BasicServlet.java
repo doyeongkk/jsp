@@ -38,6 +38,7 @@ public class BasicServlet extends HttpServlet{
      //  if(설정로그레벨 <= debug) {
     	   logger.debug("basicServlet.doGet() userId parameter :" + req.getParameter("userId"));
       // }
+    	  // 지금은 중괄호로 극복함
     	   logger.debug("basicServlet.doGet() userId parameter : {} {}", 
     			                   req.getParameter("userId"),  req.getParameter("password")); 
 	   
