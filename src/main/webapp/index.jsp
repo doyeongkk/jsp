@@ -7,10 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <%
-  	 request = null;
-  
-  %>
+ 
   webapp/index.jsp ==> localhost/index.jsp
   
   webapp/image/brown.png
