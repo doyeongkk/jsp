@@ -20,15 +20,20 @@
 </head>
 <body>
   <table>
-   <% for (int i =1; i<=9; i++)  {%>
-      
-      <tr>
-      <% for (int j=2; j<=9; j++) {%>
-       <td><%=j%>  * <%= i %> = <%= i*j %> </td>
-       
-       <%} %>
-       </tr>
-       <%} %>
-       </table>
+		<%
+		for (int i = 1; i <= 9; i++) {
+			out.write("<tr>");
+			for (int j = 2; j <= 9; j++) {
+				out.write("<td>" + j + "*" + i + "=" + i * j + "</td>");
+			}
+			out.write("</tr>");
+		}
+		%>
+
+
+
+
+
+	</table>
 </body>
 </html>
