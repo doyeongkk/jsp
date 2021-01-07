@@ -7,6 +7,6 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<%@ include file="/common/common_lib.jsp" %>
+
 
 <script src="<%=request.getContextPath()%>/js/bootstrap.js" rel="stylesheet"></script>
