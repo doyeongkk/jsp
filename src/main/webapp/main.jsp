@@ -15,32 +15,31 @@
 <title>Jsp</title>
 
 
-	
-<%@include file="/common/common_lib.jsp" %>	
+
+<%@include file="/common/common_lib.jsp"%>
 <!-- Bootstrap core CSS -->
 
 <link href="<%=request.getContextPath()%>/css/bootstrap.css"
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/dashboard.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css"
-	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-	<%@include file="/common/header.jsp" %>
-	
+	<%@include file="/common/header.jsp"%>
+
 	<div class="container-fluid">
 		<div class="row">
 
 			<div class="col-sm-3 col-md-2 sidebar">
-			  
-			       <%@include file="/common/left.jsp" %>
+
+				<%@include file="/common/left.jsp"%>
 			</div>
-			
-			
+
+
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
 
