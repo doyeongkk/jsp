@@ -59,15 +59,22 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
 							%>
 						</table>
 					</div>
+					
 					<a class="btn btn-default pull-right">사용자 등록</a>
-                     pagination <%=request.getAttribute("pagination") %>
+                    
 					<div class="text-center">
 						<ul class="pagination">
-							<li><a href="<%=request.getContextPath() %>/pagingUser?page=1&pageSize=5">1</a></li>
-							<li><a href="<%=request.getContextPath() %>/pagingUser?page=2&pageSize=5">2</a></li>
-							<li><a href="<%=request.getContextPath() %>/pagingUser?page=3&pageSize=5">3</a></li>
-							<li><a href="<%=request.getContextPath() %>/pagingUser?page=4&pageSize=5">4</a></li>
-							<li><a href="<%=request.getContextPath() %>/pagingUser?page=5&pageSize=5">5</a></li>
+						    <%-- pagination 값이 4이므로 1부터 4까지 4번 반복된다 
+						    	 전체 사용자수 : 16명
+						    	 페이지 사이즈 : 5
+						    	 전체 페이지 수 : 4페이지  
+						     --%>
+							<%for(int i = 1; i <=(int)request.getAttribute("pagination"); i++) {%>
+							<li><a href="<%=request.getContextPath() %>/pagingUser?page=<%=i %>&pageSize=5"><%=i %></a></li>
+							<%} %>
+							
+							
+					
 						</ul>
 					</div>
 				</div>
