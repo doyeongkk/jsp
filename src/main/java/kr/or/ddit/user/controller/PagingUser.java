@@ -52,6 +52,8 @@ public class PagingUser extends HttpServlet{
 		
 		req.setAttribute("userList", userList);
 		req.setAttribute("pagination", pagination);
+		req.setAttribute("pageVo", pageVo);
+		
 		
 		req.getRequestDispatcher("/user/pagingUser.jsp").forward(req, resp);
 	}
