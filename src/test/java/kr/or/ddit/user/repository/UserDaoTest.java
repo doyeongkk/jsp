@@ -108,7 +108,7 @@ public class UserDaoTest {
    public void deleteUserTest() {
       /***Given***/
       //해당 테스트가 실행될 때는 testUser라는 사용자가 before 메소드에 의해 등록이 된 상태
-      String userid = "testUser";
+      String userid = "김";
       
       /***When***/
       int deleteCnt = userDao.deleteUser(userid);

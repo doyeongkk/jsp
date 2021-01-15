@@ -22,6 +22,7 @@ public class UserDelete extends HttpServlet{
    
    @Override
    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	  req.setCharacterEncoding("utf-8");
       String userid = req.getParameter("userid");
       
       int deleteCnt = 0;

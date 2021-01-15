@@ -66,8 +66,8 @@
   <!-- 사용자 삭제 -->
   
  <delete id="deleteUser" parameterType="string">
- DELETE users
- WHERE userid = #{value}
+	DELETE users
+	WHERE userid = #{value}
     
  </delete> 
   

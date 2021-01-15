@@ -51,7 +51,7 @@ UserVo user = (UserVo) request.getAttribute("user");
                <label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
                <div class="col-sm-10">
                   <img src ="<%=request.getContextPath() %>/profile/<%=user.getUserid()%>.png"/>
-                 
+                  <label class="control-label"><%=user.getUserid()%></label>
                </div>
             </div>
             
