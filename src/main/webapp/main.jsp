@@ -19,11 +19,11 @@
 <%@include file="/common/common_lib.jsp"%>
 <!-- Bootstrap core CSS -->
 
-<link href="<%=request.getContextPath()%>/css/bootstrap.css"
+<link href="${pageContext.request.contextPath }/css/bootstrap.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/dashboard.css"
+<link href="${pageContext.request.contextPath }/css/dashboard.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
 
 </head>
 

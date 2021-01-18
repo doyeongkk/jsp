@@ -1,7 +1,9 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +16,12 @@
 <link rel="icon" href="../../favicon.ico">
 
 <title>Jsp</title>
-<link href="<%=request.getContextPath()%>/css/bootstrap.min.css"
+<link href="${pageContext.request.contextPath }/css/bootstrap.min.css"
 	rel="stylesheet">
 <script src="/js/jquery/jquery-1.12.4.js"></script><link href="bootstrap.css" rel="stylesheet"><!-- Bootstrap core CSS -->
-<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script><!-- Custom styles for this template -->
-<link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script><!-- Custom styles for this template -->
+<link href="${pageContext.request.contextPath }/css/dashboard.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
 <%List<UserVo> userList = (List<UserVo>)request.getAttribute("userList"); %>
 </head>
 
@@ -71,17 +73,19 @@
 					<th>사용자 별명</th>
 					<th>등록일시</th>
 				</tr>
-				<%
-					for(int i = 0; i < userList.size(); i++){
-						UserVo vo = userList.get(i);
-						out.write("<tr>");
-						out.write(    "<td>" + vo.getUserid() + "</td>");
-						out.write(    "<td>" + vo.getUsernm() + "</td>");
-						out.write(    "<td>" + vo.getAlias() + "</td>");
-						out.write(    "<td>" + vo.getReg_dt_fmt() + "</td>");
-						out.write("<tr>");
-					}
-				%>
+				
+		             <c:forEach items="${userList }" var="user">
+						
+				       <tr>
+				       <td>${user.userid }</td>
+				       <td>${user.usernm }</td>
+				       <td>${user.alias }</td>
+				       <td>${user.getReg_dt_fmt() }</td>
+				   </tr>						
+					</c:forEach>
+
+
+	
 			</table>
 		</div>
 		

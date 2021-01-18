@@ -4,6 +4,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,8 +90,7 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
                <button type="button" id="insertUser" class="btn btn-default pull-right"> 사용자 등록</button>
                
                   <div class="text-center">
-							<% PageVo pageVo  = (PageVo)request.getAttribute("pageVo");
-							   int pagination =	(int)request.getAttribute("pagination");%>
+						
 							<ul class="pagination">
 								
 								<%-- pagination 값이 4이므로 1부터 4까지 4번 반복된다
@@ -99,19 +99,23 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
 								     전체 페이지 수 : 4페이지
 								 --%> 
 								 <li class="prev">
-									<a href="<%=request.getContextPath() %>/pagingUser?page=1&pageSize=<%=pageVo.getPageSize()%>">«</a>
+									<a href="${pageContext.request.contextPath}/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
 								</li>
-								<%for(int i = 1; i <= pagination; i++){
-									
-									if(pageVo.getPage() == i){%>
-										<li class="active"><span><%=i %></span></li>
-									<%}
-									else {%>
-										<li><a href="<%=request.getContextPath() %>/pagingUser?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a></li>
-									<%} %>
-								<%} %>
+								<c:forEach begin="1" end="${pagination }" var="i">
+								
+									<c:choose>
+									    <c:when test="${pageVo.page == i }">
+										<li class="active"><span>${i }</span></li>
+									    </c:when>
+									    <c:otherwise>
+										<li><a href="${pageContext.request.contextPath}/pagingUser?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>
+									       
+									    </c:otherwise>
+									</c:choose>
+					
+							</c:forEach>
 								<li class="next">
-									<a href="<%=request.getContextPath() %>/pagingUser?page=<%=pagination %>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+									<a href="${pageContext.request.contextPath}/pagingUser?page=${pagination }&pageSize=${pageVo.pageSize }">»</a>
 								</li>
 							</ul>
 						</div>  
@@ -122,3 +126,6 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
    </div>
 </body>
 </html>
+
+
+

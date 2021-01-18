@@ -8,12 +8,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link href="<%=request.getContextPath()%>/css/bootstrap.min.css"
+<link href="${pageContext.request.contextPath }/css/bootstrap.min.css"
 	rel="stylesheet">
 <script src="/js/jquery/jquery-1.12.4.js"></script><link href="bootstrap.css" rel="stylesheet"><!-- Bootstrap core CSS -->
-<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script><!-- Custom styles for this template -->
-<link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script><!-- Custom styles for this template -->
+<link href="${pageContext.request.contextPath }/css/dashboard.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
 <%List<MemberVo> memList = (List<MemberVo>)request.getAttribute("memList"); %>
 <body>
 

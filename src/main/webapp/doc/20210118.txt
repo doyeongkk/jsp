@@ -1,0 +1,60 @@
+EL, JSTL (왜 배울까?)==> 표현식, 스크립틀릿을 걷어 내기 위함 
+           	 	   ==> JSP 파일을 최대한 태그 처럼 보이게 하기 위함
+           	 	       (자바 코드를 걷어 낸다)
+           	 	       
+--JSTL--
+JSTL 태그 라이브러리 사용 방법 지시자<%@ %>
+1. tablib 지시자를 선언
+<%@ taglib prefix="네임스페이스, 개발자가 편한대로 지정가능, 관습적으로 많이 사용 하는 prefix를 보통 따름" 
+					uri="사용하려고 하는 태그의 식별자" %>
+core 태그 라이브러리 : c
+국제화 태그 라이브러리 : fmt
+
+
+CORE tag 라이브러리
+속성저장
+requet.setAttribute("속성명",속성값);
+session.setAttribute("속성명",속성값);
+
+--2교시--
+el 사용시 null값 처리를 자동으로 함  ==> registUser.jsp null처리 간소화 작업
+
+ ctrl + h ==> 검색 치환 
+<%=request.getContextPath()%> ==> ${pageContext.request.contextPath}
+
+<%=request.getContextPath()%>
+<%= request.getContextPath()%>
+<%=request.getContextPath() %>  -> 하나로 통일해주기 
+
+
+--3교시--
+
+우리가 실습한거 3개 
+${pageContext.} /거의 안쓴다 
+${param.} /드물게
+${속성명} / 가장 많이 사용한다. 
+
+${request...}-> 쓰면 안된다. 제공하지 않음 
+
+JSTL CORE 조건 제어(java if)
+if 			=> java 단일 if
+choose 		=> java if, else if, else
+
+**중요하다 많이 사용**
+JSTL 반복문(for, 향상된 for)
+forEeach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

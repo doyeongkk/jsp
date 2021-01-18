@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <ul class="nav nav-sidebar">
 		<li class="active"><a href="#">Main <span class="sr-only">(current)</span></a></li>
-		<li class="active"><a href="<%=request.getContextPath()%>/allMember">직원</a></li>
-		<li class="active"><a href="<%=request.getContextPath()%>/allUser">전체 사용자</a></li>
-		<li class="active"><a href="<%=request.getContextPath()%>/pagingUser?page=1&pageSize=5">사용자 페이징 리스트</a></li>
+		<li class="active"><a href="${pageContext.request.contextPath }/allMember">직원</a></li>
+		<li class="active"><a href="${pageContext.request.contextPath }/allUser">전체 사용자</a></li>
+		<li class="active"><a href="${pageContext.request.contextPath }/pagingUser?page=1&pageSize=5">사용자 페이징 리스트</a></li>
 	
 		
 		<%--
