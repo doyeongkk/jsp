@@ -25,7 +25,10 @@ public class UserResist extends HttpServlet{
    
    @Override
    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      req.setCharacterEncoding("utf-8");
+      //파라미터를 읽기 전에 실행
+	   //servlet의 doPost 메소드 마다 실행 필요 ==> Filter
+	   
+	  // req.setCharacterEncoding("utf-8");
       
       String userid = req.getParameter("userid");
       String usernm = req.getParameter("usernm");

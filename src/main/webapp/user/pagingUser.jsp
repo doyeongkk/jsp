@@ -4,7 +4,6 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,33 +28,33 @@
 List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
 %>
 <script>
-	$(function(){
-		$(".user").on("click", function(){
-			//this : 클릭 이벤트가 발생한 element
-			//data-속성명 data-userid, 속성명은 대소문자 무시하고 소문자로 인식
-			//data-userId ==> data-userid
-			var userid = $(this).data("userid");
-			$("#userid").val(userid);
-			$("#frm").submit();
-		});
-	});
-	
-	$(function(){
-		$("#insertUser").on("click", function(){
-			location.href='<%=request.getContextPath()%>/registUser';
-		});
-	});
-	
-	
-	
-	
+   $(function(){
+      $(".user").on("click", function(){
+         //this : 클릭 이벤트가 발생한 element
+         //data-속성명 data-userid, 속성명은 대소문자 무시하고 소문자로 인식
+         //data-userId ==> data-userid
+         var userid = $(this).data("userid");
+         $("#userid").val(userid);
+         $("#frm").submit();
+      });
+   });
+   
+   $(function(){
+      $("#insertUser").on("click", function(){
+         location.href='<%=request.getContextPath()%>/registUser';
+      });
+   });
+   
+   
+   
+   
 </script>
 </head>
 <body>
-	
-	<form id="frm" action="<%=request.getContextPath() %>/user" >
-		<input type="hidden" id="userid" name="userid" value=""/>
-	</form>
+   
+   <form id="frm" action="<%=request.getContextPath() %>/user" >
+      <input type="hidden" id="userid" name="userid" value=""/>
+   </form>
    <%@ include file="/common/header.jsp"%>
    <div class="container-fluid">
       <div class="col-sm-3 col-md-2 sidebar">
@@ -78,11 +77,11 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
                      
                      for (UserVo user : (List<UserVo>)request.getAttribute("userList")) { %>
                         <tr class="user" data-userid="<%=user.getUserid() %>">
-                     		<td><%=user.getUserid() %></td>
-                     		<td><%=user.getUsernm() %></td>
-                     		<td><%=user.getAlias() %></td>
-                     		<td><%=user.getReg_dt_fmt() %></td>
-                     	</tr>	
+                           <td><%=user.getUserid() %></td>
+                           <td><%=user.getUsernm() %></td>
+                           <td><%=user.getAlias() %></td>
+                           <td><%=user.getReg_dt_fmt() %></td>
+                        </tr>   
                      <%} %>
                   </table>
                </div>
@@ -90,35 +89,32 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
                <button type="button" id="insertUser" class="btn btn-default pull-right"> 사용자 등록</button>
                
                   <div class="text-center">
-						
-							<ul class="pagination">
-								
-								<%-- pagination 값이 4이므로 1부터 4까지 4번 반복된다
-								     전체 사용자수 : 16명
-								     페이지 사이즈 : 5
-								     전체 페이지 수 : 4페이지
-								 --%> 
-								 <li class="prev">
-									<a href="${pageContext.request.contextPath}/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
-								</li>
-								<c:forEach begin="1" end="${pagination }" var="i">
-								
-									<c:choose>
-									    <c:when test="${pageVo.page == i }">
-										<li class="active"><span>${i }</span></li>
-									    </c:when>
-									    <c:otherwise>
-										<li><a href="${pageContext.request.contextPath}/pagingUser?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>
-									       
-									    </c:otherwise>
-									</c:choose>
-					
-							</c:forEach>
-								<li class="next">
-									<a href="${pageContext.request.contextPath}/pagingUser?page=${pagination }&pageSize=${pageVo.pageSize }">»</a>
-								</li>
-							</ul>
-						</div>  
+                     <% PageVo pageVo  = (PageVo)request.getAttribute("pageVo");
+                        int pagination =   (int)request.getAttribute("pagination");%>
+                     <ul class="pagination">
+                        
+                        <%-- pagination 값이 4이므로 1부터 4까지 4번 반복된다
+                             전체 사용자수 : 16명
+                             페이지 사이즈 : 5
+                             전체 페이지 수 : 4페이지
+                         --%> 
+                         <li class="prev">
+                           <a href="<%=request.getContextPath() %>/pagingUser?page=1&pageSize=<%=pageVo.getPageSize()%>">«</a>
+                        </li>
+                        <%for(int i = 1; i <= pagination; i++){
+                           
+                           if(pageVo.getPage() == i){%>
+                              <li class="active"><span><%=i %></span></li>
+                           <%}
+                           else {%>
+                              <li><a href="<%=request.getContextPath() %>/pagingUser?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a></li>
+                           <%} %>
+                        <%} %>
+                        <li class="next">
+                           <a href="<%=request.getContextPath() %>/pagingUser?page=<%=pagination %>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+                        </li>
+                     </ul>
+                  </div>  
                
             </div>
          </div>
@@ -126,6 +122,3 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
    </div>
 </body>
 </html>
-
-
-

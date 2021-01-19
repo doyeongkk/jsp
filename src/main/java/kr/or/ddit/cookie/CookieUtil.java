@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 public class CookieUtil {
 	
 	private static final Logger logger = LoggerFactory.getLogger(CookieUtil.class);
-
+    
 	/**
 	* Method : getCookieValue
 	* 작성자 : SEM
