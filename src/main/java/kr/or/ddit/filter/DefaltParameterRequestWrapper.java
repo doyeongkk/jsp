@@ -1,7 +1,6 @@
 package kr.or.ddit.filter;
 
 
-
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -10,23 +9,17 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
-
 public class DefaltParameterRequestWrapper extends HttpServletRequestWrapper{
   
 	 public Map<String, String[]> customMap;
 	 
 	  public DefaltParameterRequestWrapper(HttpServletRequest request) {
-		super(request);
-	
-		  
-	     customMap = new HashMap<>(request.getParameterMap());
-
-		
+		super(request);		  
+	     customMap = new HashMap<>(request.getParameterMap());	
 		// 사정에 의해서 모든 요청객체에 UNT_CD 파라미터로 DDIT 문자열값을 넣어줘야 되는 상황 
 		customMap.put("UNT_CD", new String[]{"DDIT"});
 		
 	}
-	
 	// 4개 메서드 
        @Override
     public String getParameter(String name) {
