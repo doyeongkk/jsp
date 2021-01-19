@@ -1,6 +1,7 @@
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,14 +9,14 @@
 <title>Insert title here</title>
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link href="${pageContext.request.contextPath }/css/bootstrap.min.css"
+<link href="${cp }/css/bootstrap.min.css"
    rel="stylesheet">
 <!-- Bootstrap core CSS -->
-<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
+<script src="${cp }/js/bootstrap.js"></script>
 <!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath }/css/dashboard.css"
+<link href="${cp }/css/dashboard.css"
    rel="stylesheet">
-<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
+<link href="${cp }/css/blog.css" rel="stylesheet">
 <script
    src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
@@ -31,7 +32,7 @@ $(function(){
       var userid = "<%=user.getUserid()%>"
       var usernm = "<%=user.getUsernm()%>"
       var pass = "<%=user.getPass()%>"
-      var reg_dt = "<%=user.getReg_dt_fmt()%>"
+      var reg_dt = <fmt:parseDate value="${dateStr }" pattern="yyy.MM.dd"/>
       var alias = "<%=user.getAlias()%>"
       var addr1 = "<%=user.getAddr1()%>"
       var addr2 = "<%=user.getAddr2()%>"
@@ -72,7 +73,7 @@ $(function(){
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
          <form class="form-horizontal" role="form" method="post"
-            action="${pageContext.request.contextPath}/registUser">
+            action="${cp}/registUser">
           
 
  			 <div class="form-group">

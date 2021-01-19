@@ -17,12 +17,12 @@
 <link rel="icon" href="../../favicon.ico">
 
 <title>Jsp</title>
-<link href="${pageContext.request.contextPath }/css/bootstrap.min.css"
+<link href="${cp }/css/bootstrap.min.css"
 	rel="stylesheet">
 <script src="/js/jquery/jquery-1.12.4.js"></script><link href="bootstrap.css" rel="stylesheet"><!-- Bootstrap core CSS -->
-<script src="${pageContext.request.contextPath }/js/bootstrap.js"></script><!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath }/css/dashboard.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath }/css/blog.css" rel="stylesheet">
+<script src="${cp }/js/bootstrap.js"></script><!-- Custom styles for this template -->
+<link href="${cp }/css/dashboard.css" rel="stylesheet">
+<link href="${cp }/css/blog.css" rel="stylesheet">
 <%List<UserVo> userList = (List<UserVo>)request.getAttribute("userList"); %>
 </head>
 

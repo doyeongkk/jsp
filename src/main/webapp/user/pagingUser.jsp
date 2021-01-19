@@ -4,7 +4,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,23 +69,22 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
                <h2 class="sub-header">사용자</h2>
                <div class="table-responsive">
                   <table class="table table-striped">
-                     <tr>
-                        <th>사용자 아이디</th>
-                        <th>사용자 이름</th>
-                        <th>사용자 별명</th>
-                        <th>등록일시</th>
-                     </tr>
-                     <%
-                     
-                     for (UserVo user : (List<UserVo>)request.getAttribute("userList")) { %>
-                        <tr class="user" data-userid="<%=user.getUserid() %>">
-                           <td><%=user.getUserid() %></td>
-                           <td><%=user.getUsernm() %></td>
-                           <td><%=user.getAlias() %></td>
-                           <td><fmt:formatDate value="${user.reg_dt }" pattern="yyyy.MM.dd"/>  </td>
-                        </tr>   
-                     <%} %>
-                  </table>
+            <tr>
+               <th>사용자 아이디</th>
+               <th>사용자 이름</th>
+               <th>사용자 별명</th>
+               <th>등록일시</th>
+            </tr>
+            <c:forEach items="${userList }" var="user">
+            
+            <tr>
+               <td>${user.userid }</td>
+               <td>${user.usernm }</td>
+               <td>${user.alias }</td>
+               <td><fmt:formatDate value="${user.reg_dt }" pattern="yyyy.MM.dd" /></td>
+            </tr>
+            </c:forEach>
+         </table>
                </div>
                
                <button type="button" id="insertUser" class="btn btn-default pull-right"> 사용자 등록</button>

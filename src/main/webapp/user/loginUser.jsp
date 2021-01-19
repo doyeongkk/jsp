@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <form action="${cp }/mulCalculation" method="post">
-  <input type="text" name="start"><br>
-  <input type="text" name="end">
-  <input type="submit" value="전송">
-
-</form>
+       user set : ${USER_SET }
 </body>
 </html>

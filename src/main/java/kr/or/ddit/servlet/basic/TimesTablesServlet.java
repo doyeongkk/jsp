@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.sun.org.apache.xml.internal.security.Init;
 
-public class TimeServlet extends HttpServlet {
+public class TimesTablesServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
