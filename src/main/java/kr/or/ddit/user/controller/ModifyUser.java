@@ -4,17 +4,22 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.UserService;
 import kr.or.ddit.user.service.UserServiceI;
+import kr.or.ddit.util.FileUtil;
 
+@MultipartConfig
 @WebServlet("/userModify")
 public class ModifyUser extends HttpServlet{
    UserServiceI userService = new UserService();
@@ -52,7 +57,23 @@ public class ModifyUser extends HttpServlet{
       String addr2 = req.getParameter("addr2");
       String zipcode = req.getParameter("zipcode");
       
-      UserVo userVo = new UserVo(userid, usernm, pass, reg_dt , alias, addr1, addr2, zipcode);
+      Part profile = req.getPart("profile");
+      String filename = "";
+      String realfilename = "";
+      if(profile.getSize() > 0) {
+         filename = FileUtil.getFileName(profile.getHeader("Content-Disposition"));
+         String fileExtension = FileUtil.getFileExtension(filename);
+         
+         realfilename = UUID.randomUUID().toString() + fileExtension;
+         
+         profile.write("d:\\upload\\" + realfilename);
+      }else {
+            UserVo user = userService.selectUser(userid);
+            filename = user.getFilename();
+            realfilename = user.getRealfilename();
+         }
+      
+      UserVo userVo = new UserVo(userid, usernm, pass, reg_dt , alias, addr1, addr2, zipcode, filename, realfilename);
       
       int updateCnt = userService.modifyUser(userVo);
       //사용자 수정이 정상적으로 된 경우 ==> 해당 사용자의 상세조회 페이지로 이동

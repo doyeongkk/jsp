@@ -72,7 +72,7 @@ $(function(){
 
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-         <form class="form-horizontal" role="form" method="post"
+         <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data"
             action="${cp}/registUser">
           
 
@@ -82,6 +82,7 @@ $(function(){
                   
                   <input type="text" class="form-control" id="userid" name="userid"
                      placeholder="사용자아이디" value="${param.userid}">
+                  <input type="file" class="form-control" name="profile"/>
                </div>
             </div>
 

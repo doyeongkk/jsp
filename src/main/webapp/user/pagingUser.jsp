@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>     
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,15 +15,15 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="<%=request.getContextPath()%>/../favicon.ico">
+<link rel="icon" href="${cp }/../favicon.ico">
 
 <title>user</title>
-<link href="<%=request.getContextPath()%>/css/bootstrap.min.css"
+<link href="${cp }/css/bootstrap.min.css"
    rel="stylesheet">
 <!-- Bootstrap core CSS -->
-<link href="<%=request.getContextPath()%>/css/dashboard.css"
+<link href="${cp }/css/dashboard.css"
    rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css"
+<link href="${cp }/css/blog.css"
    rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <%
@@ -43,7 +43,7 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
    
    $(function(){
       $("#insertUser").on("click", function(){
-         location.href='<%=request.getContextPath()%>/registUser';
+         location.href='${cp }/registUser';
       });
    });
    
@@ -54,7 +54,7 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
 </head>
 <body>
    
-   <form id="frm" action="<%=request.getContextPath() %>/user" >
+   <form id="frm" action="${cp }/user" >
       <input type="hidden" id="userid" name="userid" value=""/>
    </form>
    <%@ include file="/common/header.jsp"%>
@@ -69,29 +69,30 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
                <h2 class="sub-header">사용자</h2>
                <div class="table-responsive">
                   <table class="table table-striped">
-            <tr>
-               <th>사용자 아이디</th>
-               <th>사용자 이름</th>
-               <th>사용자 별명</th>
-               <th>등록일시</th>
-            </tr>
-            <c:forEach items="${userList }" var="user">
-            
-            <tr>
-               <td>${user.userid }</td>
-               <td>${user.usernm }</td>
-               <td>${user.alias }</td>
-               <td><fmt:formatDate value="${user.reg_dt }" pattern="yyyy.MM.dd" /></td>
-            </tr>
-            </c:forEach>
-         </table>
+                     <tr>
+                        <th>사용자 아이디</th>
+                        <th>사용자 이름</th>
+                        <th>사용자 별명</th>
+                        <th>사용자 도로주소</th>
+                        <th>등록일시</th>
+                     </tr>
+                     
+                     
+                     <c:forEach items="${userList }" var="user">
+                        <tr class="user" data-userid="${user.userid }">
+                           <td>${user.userid }</td>
+                           <td>${user.usernm }</td>
+                           <td>${user.alias }</td>
+                           <td>${user.addr1 }</td>
+                           <td><fmt:formatDate value="${user.reg_dt }" pattern="yyyy.MM.dd" /></td>
+                        </tr>   
+                     </c:forEach>
+                  </table>
                </div>
                
                <button type="button" id="insertUser" class="btn btn-default pull-right"> 사용자 등록</button>
                
                   <div class="text-center">
-                     <% PageVo pageVo  = (PageVo)request.getAttribute("pageVo");
-                        int pagination =   (int)request.getAttribute("pagination");%>
                      <ul class="pagination">
                         
                         <%-- pagination 값이 4이므로 1부터 4까지 4번 반복된다
@@ -100,19 +101,16 @@ List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
                              전체 페이지 수 : 4페이지
                          --%> 
                          <li class="prev">
-                           <a href="<%=request.getContextPath() %>/pagingUser?page=1&pageSize=<%=pageVo.getPageSize()%>">«</a>
+                           <a href="${cp}/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
                         </li>
-                        <%for(int i = 1; i <= pagination; i++){
-                           
-                           if(pageVo.getPage() == i){%>
-                              <li class="active"><span><%=i %></span></li>
-                           <%}
-                           else {%>
-                              <li><a href="<%=request.getContextPath() %>/pagingUser?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a></li>
-                           <%} %>
-                        <%} %>
+                        <c:forEach begin="1" end="${pagination }" var="i">
+                           <c:choose>
+                              <c:when test="${pageVo.page == i}"><li class="active"><span>${i }</span></li></c:when>
+                              <c:otherwise><li><a href="${cp}/pagingUser?page=${i }&pageSize=${pageVo.pageSize }">${i }</a></li></c:otherwise>
+                           </c:choose>                        
+                        </c:forEach>
                         <li class="next">
-                           <a href="<%=request.getContextPath() %>/pagingUser?page=<%=pagination %>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+                           <a href="${cp}/pagingUser?page=${pagination }&pageSize=${pageVo.pageSize }">»</a>
                         </li>
                      </ul>
                   </div>  

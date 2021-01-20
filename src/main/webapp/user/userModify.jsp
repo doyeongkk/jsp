@@ -50,13 +50,23 @@ $(function(){
 		%>
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-				<form class="form-horizontal" role="form" method="post" action="${cp }/userModify">
+				<form class="form-horizontal" role="form" method="post" action="${cp }/userModify" enctype="multipart/form-data">
 				<input type="hidden" name="userid" value="<%=user.getUserid() %>"/>
+				
+				   <div class="form-group">
+						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
+						<div class="col-sm-10">
+						    <img src="${cp }/profile/${user.userid }.png"/>
+						    <input type="file" class="form-control" id="profile" name="profile"/>
+								
+					</div>
+				 </div>
+				
 				
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<label class="control-label">{user.userid}</label>
+							<label class="control-label">${user.userid}</label>
 						</div>
 					</div>
 					
@@ -90,7 +100,7 @@ $(function(){
 						<label for="userNm" class="col-sm-2 control-label">등록일시</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="reg_dt"
-								name="reg_dt" value="<fmt:parseDate value="${dateStr }" pattern="yyy.MM.dd"/>" placeholder="등록일시">
+								name="reg_dt" value="<fmt:formatDate value="${user.reg_dt }" pattern="yyy.MM.dd"/>" placeholder="등록일시">
 						</div>
 					</div>
 

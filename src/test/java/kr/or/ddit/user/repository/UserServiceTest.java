@@ -26,7 +26,7 @@ private UserServiceI UserService;
 		UserService = new UserService();
 		//테스트에서 사용할 신규 사용자 추가
 		UserVo userVo = new UserVo("testUser", "테스트사용자", "testUserPass", 
-				               new Date(), "대덕", "대전 중구 중앙로 76", "4층", "34940");
+				               new Date(), "대덕", "대전 중구 중앙로 76", "4층", "34940", "brown.png", "uuid-generated-filename.png");
 		
 		UserService.insertUser(userVo);
 		

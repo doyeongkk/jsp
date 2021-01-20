@@ -22,7 +22,7 @@ public class UserDaoTest {
       
       //테스트에서 사용할 신규 사용자 추가
       UserVo userVo = new UserVo("testUser", "테스트사용자", "testUserPass", 
-                           new Date(), "대덕", "대전 중구 중앙로 76", "4층", "34940");
+                           new Date(), "대덕", "대전 중구 중앙로 76", "4층", "34940", "brown.png", "uuid-generated-filename.png");
       
       userDao.insertUser(userVo);
       
@@ -80,7 +80,8 @@ public class UserDaoTest {
       /***Given***/
       
       //userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
-      UserVo userVo = new UserVo("ddit", "대덕인재", "dditpass", new Date(), "개발원 m", "대전시 중구 중앙로76", "4층 대덕인재개발원", "34940");
+      UserVo userVo = new UserVo("ddit", "대덕인재", "dditpass", new Date(), "개발원 m", "대전시 중구 중앙로76", "4층 대덕인재개발원", "34940",
+    		  "brown.png", "uuid-generated-filename.png");
       
       /***When***/
       int updateCnt = userDao.modifyUser(userVo);
@@ -94,7 +95,8 @@ public class UserDaoTest {
       /***Given***/
       userDao.deleteUser("ddit_n");
       //userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
-      UserVo userVo = new UserVo("ddit_n", "대덕인", "dditpass", new Date(), "개발원 i", "대전시 중구 중앙로76", "4층 대덕인재개발원", "34940");
+      UserVo userVo = new UserVo("ddit_n", "대덕인", "dditpass", new Date(), "개발원 i", "대전시 중구 중앙로76", "4층 대덕인재개발원", "34940"
+    		  , "brown.png", "uuid-generated-filename.png");
       
       /***When***/
       int insertCnt = userDao.insertUser(userVo);
